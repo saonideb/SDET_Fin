@@ -1,0 +1,197 @@
+﻿<%@ Master Language="VB" CodeFile="MasterPage.master.vb" Inherits="Personal_Users_MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <link rel="shortcut icon" href="Images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="css/mystyle.css" />
+    <link type="text/css" href="css/reset.css" rel="stylesheet" />
+    <link type="text/css" href="css/module.css" rel="stylesheet" />
+    <link type="text/css" href="css/main.css" rel="stylesheet" />
+    <link type="text/css" href="css/jquery.autocomplete.css" rel="stylesheet" />
+    <script type="text/javascript" src="Scripts/jquery-1.4.1.min.js"></script>
+    <script type="text/javascript" src="Scripts/jquery.colorbox.js"></script>
+    <script type="text/javascript" src="Scripts/main.js"></script>
+    <script type="text/javascript" src="Scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="Scripts/datetimepicker.js"></script>
+    <script type="text/javascript" src="Scripts/Disable_rightclick.js"></script> 
+    <script type="text/javascript" src="Scripts/Footer.js"></script>
+    <script type="text/javascript" src="Scripts/Disable_BackButton.js"></script> 
+    <script type="text/javascript" src="Scripts/jquery.autocomplete.js"></script>
+    <link type="text/css" href="Datepicker/datepicker_style.css" rel="stylesheet" />
+    <script type="text/javascript" src="Datepicker/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="Datepicker/jquery-ui.js"></script>
+
+</head>
+<body>
+    <form id="form1" runat="server" autocomplete="off">
+        <div id="main" align="center">
+            <table id="t1" border="0" cellpadding="0" cellspacing="0" width="100% "
+                bgcolor="White">
+                <tr>
+                    <td>
+                        <div id="Div1" align="left">
+                            <div class="headerWrapper">
+                                <div class="headerWrapperFix">
+                                    <h1 class="hidden">BITS Pilani</h1>
+                                    <div class="logoWrapper">
+                                        <a href="#" class="logo">
+                                            <img src="images/BITS_Pilani_campus_logo.gif" alt="BITS PILANI logo" />
+                                        </a>
+                                    </div>
+
+
+                                    <ul class="commonNav">
+                                        <li><a href="http://www.bits-pilani.ac.in/" target="_blank">University Home</a></li>
+                                        <li><a href="http://www.bits-pilani.ac.in/Pilani" target="_blank">Pilani Campus Home </a></li>
+                                    </ul>
+
+                                    <ul class="mainNav">
+
+
+
+                                        <%--<li><a href="Approved_Budget_Individual.aspx">Approved Budget</a></li> --%>
+                                        <li><a href="Approved_Budget_All.aspx">Dashboard </a></li>
+                                        <li>
+                                            <a href="javascript:void(0);" id="A1">Manage Approvals</a>
+                                            <div class="subNavWrapper">
+                                                <div class="subNavCont">
+                                                    <ul>
+                                                        <li>
+                                                            <ul>
+                                                                <li><a href="Approval_Instructions_Individual.aspx">New Approval</a></li>
+                                                                <li><a href="View_Individual_Approval_Status_Step4.aspx">Edit Approvals</a></li>
+                                                                <li><a href="View_Individual_Approval_Status_Step1.aspx">View Approval Status</a></li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li id="div_user_type" runat="server" visible="false">
+                                            <a href="javascript:void(0);" id="A2">Manage Account</a>
+                                            <div class="subNavWrapper">
+                                                <div class="subNavCont">
+                                                    <ul>
+                                                        <li>
+                                                            <ul>
+                                                                <li><a href="Grant_Login_Access_To_Other_Users.aspx">Delegate Account Access</a></li>
+                                                                <li><a href="Remove_User_Account_Access.aspx">Delete Account Access</a></li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+
+                                    <ul class="siteInfo" style="right: 110px; width: 360px; top: 20px; height: 60px">
+                                        <li style="width: 435px">
+                                            <p class="siteLog" style="text-align: center">
+                                                <span style="font-size: 0.9em"><span style="font-size: 0.8em">BITS Approval System (Individual)</span> </span>
+                                                <br />
+                                                <span style="font-size: 0.9em"><span style="font-size: 0.6em">(BITS Pilani, Pilani Campus)</span> </span>
+                                            </p>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+
+                    <td class="body_txt_in" style="height: 30px">
+                        <table id="UserInfo" style="width: 100%">
+                            <tbody>
+                                <tr>
+                                    <td width="70%" align="left">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <div>
+                                                        <span style="color: #211d70; font-size: 9pt"></span>&nbsp; <span style="color: darkred; font-size: 9pt"><strong>Last Login Date & Time:</strong></span>
+                                                        <asp:Label ID="lbl_last_login_date_time" runat="server" Font-Bold="True" Text="Label" ForeColor="#211D70"></asp:Label>
+                                                        &nbsp; 
+                                            <asp:Label ID="lbl_spacer_1" runat="server" Font-Bold="True" Text="|" ForeColor="#211D70"></asp:Label>
+                                                        <span style="color: #211d70; font-size: 9pt"></span>&nbsp; <span style="color: darkred; font-size: 9pt"><strong>IP Address:</strong></span>
+                                                        &nbsp;
+                                             <asp:Label ID="lbl_user_ip_address" runat="server" Font-Bold="True" Text="Label" ForeColor="#211D70"></asp:Label>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td width="30%">
+                                        <table id="table_logout_details" width="100%">
+                                            <tbody>
+                                                <tr>
+
+                                                    <td>
+                                                        <div id="div_logout" align="right" style="margin-right: 20px">
+                                                            <asp:Label ID="lbl_current_date" runat="server" Text="current_date" ForeColor="#211D70" Font-Bold="true"></asp:Label>&nbsp;
+                                                       <asp:Label ID="lbl_spacer" runat="server" Text="|" ForeColor="#211D70" Font-Bold="true"></asp:Label>&nbsp;
+                                                  
+                                                   <a class="footer" href="../Signout.aspx"><strong><span style="font-size: 8pt">[Logout]</span></strong></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+
+
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="height: 300px">
+                            <tr>
+                                <td id="contentpane" style="width: 100%; vertical-align: top">
+                                    <div align="center">
+                                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                        </asp:ContentPlaceHolder>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <footer id="webfooter">
+            <div class="footerWrapper">
+            </div>
+            <div id="Div2" align="left">
+                <div class="cpInfoFixWrapper">
+                    <div class="cpInfoFix">
+                        <p class="info">
+                            An institution deemed to be a University estd. vide Sec.3 of the UGC Act,1956 under
+                                    notification # F.12-23/63.U-2 of Jun 18,1964
+                        </p>
+                        <p>
+                            &copy; <asp:Label ID="lblYear" runat="server" Text=""></asp:Label> Centre for Software Development,SDET Unit, BITS-Pilani (Pilani Campus)
+                        </p>
+                        <%--  <p>
+                                    Developed By : Rakesh Kumar & Atul Runthala
+                                </p>--%>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </form>
+</body>
+</html>
